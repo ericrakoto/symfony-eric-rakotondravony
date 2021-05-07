@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name ="viewport" content="with=device-with, initial-scale=1.0">
+        
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{asset('css/registermada.css')}}" type="text/css" >
+            <link rel="stylesheet" href="{{asset('css/alert.css')}}" type="text/css" >
+            <link rel="stylesheet" href="{{asset('css/all.css')}}" type="text/css">
+        {% endblock %}
+    </head>
+<body class="login">
+    <div class="contlogin">
+        <form class="formulogin" method="post">
+           
+    {% for flashError in app.flashes('verify_email_error') %}<div class="alert alert-danger">vérifier votre mot de passe ou email{{ flashError }}</div>
+ {% endfor %}
+            {{ form_start(registrationForm) }}
+
+
+                
+
+
+        <div class="seconnecter">
+            <h1 class="textseconn">s'inscrire</h1>
+        </div>
+            <div class="flexlogin">
+                <div class="emailogin">
+
+                    <div class="textlogin">
+                        <label class="soratra">Votre nom d'utilisateur</label>
+                    </div> 
+                        {{ form_widget(registrationForm.email) }}
+                </div>
+           
+                <div class="emailogin">
+                    <div class="textlogin">
+                        <label class="soratra" >Votre mot de passe</label>
+                    </div> 
+                <div class="champregister">
+                        {{ form_widget(registrationForm.password) }}
+                        <i id="eye" class="fa fa-eye"></i>
+                </div>
+                </div> 
+
+                <div class="emailogin">
+                    <div class="textlogin">
+                        <label class="soratra" >Confirmer votre mot de passe</label>
+                    </div> 
+                <div class="champregister">
+                        {{ form_widget(registrationForm.confirmerpassword) }}
+                        <i id="eyes" class="fa fa-eye"></i>
+                </div>
+                </div> 
+
+                <div class="checkbox mb-3">
+                    <label>
+                        {{ form_row(registrationForm.agreeTerms) }}
+                    </label>
+                </div>
+            
+                <div class="boutin">
+                    <button class="bouton" type="submit">Register</button>
+                </div>
+
+{{ form_end(registrationForm) }}
+
+                <div class="boutin">
+                    <a class="lien" href="https://www.facebook.com">
+                        <img class="sprite" src="img/fb.png">
+                    </a>
+                    <a class="lien"href="https://www.google.com">
+                        <img class="sprite"src="img/google.png">
+                    </a>
+                    <a class="lien"href="https://www.twitter.com">
+                        <img class="sprite"src="img/twitter.png">
+                    </a>
+                </div>
+
+            </div>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        </form>
+    </div>
+    {% block javascripts %}
+            <script src="{{asset('js/jquery-3.5.1.js')}}" type="text/javascript"></script>
+
+            <script type="text/javascript">
+$(document).ready(function(){
+    const password = $('#registration_form_password');
+    const confirmpassword= $('#registration_form_confirmerpassword');
+
+    $('#eye').click(function(){
+        if(password.prop('type')=='password'){
+            $(this).addClass('fa-eye-slash');
+            password.attr('type', 'text')
+        }
+        else{
+            $(this).removeClass('fa-eye-slash');
+            password.attr('type','password')
+        }
+    })
+
+    $('#eyes').click(function(){
+        if(confirmpassword.prop('type')=='password'){
+            $(this).addClass('fa-eye-slash');
+            confirmpassword.attr('type', 'text')
+        }
+        else{
+            $(this).removeClass('fa-eye-slash');
+            confirmpassword.attr('type','password')
+        }
+    })
+})
+            </script>
+        {% endblock %}
+</body>
+
+</html>

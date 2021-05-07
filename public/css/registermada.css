@@ -1,0 +1,193 @@
+
+@font-face{
+	font-family: verdana;
+	src:url('font/verdana.ttf');
+}
+
+:root{
+	--texto: verdana;
+	--scale:1.05;
+}
+
+
+.login{
+	margin:0;
+	height: 800px;
+	background-color: rgba(255,255,255,.75);
+	top: 0px;
+	left: 0px;
+}
+.seconnecter{
+	text-align: center;
+	width: 100%;
+	height: 50px;
+
+	border: 2px;
+	border-color: #f6d399;
+	background-color: rgba(255,255,255,.75);
+	box-shadow: 1px 2px 1px #f6d399;
+}
+
+.textseconn{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-family: var(--texto);
+	color: #f6d399;
+}
+
+.contlogin{
+	background-size: contain;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;	
+}
+
+.formulogin{
+	width:50%;
+	height: 65%;
+	margin-top: 12%;
+
+	border: 1px;
+	border-color: #f6d399;
+	background-color: rgba(255,255,255,.75);
+	box-shadow: 1px 1px 1px 1px #f6d399;
+	border-radius: 5px;
+}
+
+.flexlogin{
+	width: 70%;
+	margin: 5px auto 10px auto;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.emailogin{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.textlogin{
+	margin-bottom: 5px;
+}
+
+#registration_form_email{
+	width: 100%;
+	height: 25px;
+	border-style: none;
+
+	border: 1px;
+	border-color: #f6d399;
+	background-color: rgba(255,255,255,.75);
+	box-shadow: 1px 1px 1px 1px #f6d399;
+	border-radius: 5px;
+	font-family: var(--texto);
+	text-align: center;
+}
+
+#registration_form_email >*{
+	width: 100%;
+}
+
+#registration_form_password, #registration_form_confirmerpassword {
+
+	border:none;
+	background-color: transparent;
+	flex: 0 0 auto;
+	width: 93%;
+	font-family: var(--texto);
+	text-align: center;
+}
+
+#registration_form_password>*, #registration_form_confirmerpassword >*{
+	width: 100%;
+}
+
+label.required{
+	content: "";
+}
+
+.soratra{
+	font-family: var(--texto);
+}
+
+.boutin{
+	margin-top: 10px;
+	width: 100%;
+}
+
+.bouton{
+	width: 100%;
+	height: 50px;
+	border-style: none;
+	font-size: 1.5rem;
+	font-weight: 500;
+	font-family: var(--texto);
+
+	color: rgba(255,255,255);
+	border-radius: 40px;
+	background: linear-gradient(90deg, #755bea, #ff72c0);
+	cursor: pointer;
+}
+
+.lien{
+	text-decoration-style: none;
+	text-decoration: none;
+}
+
+.sprite{
+	width: 35px;
+	height: 35px;
+}
+
+.champregister{
+	width: 100%;
+	height: 25px;
+	border-style: none;
+
+	border: 1px;
+	border-color: #f6d399;
+	background-color: rgba(255,255,255,.75);
+	box-shadow: 1px 1px 1px 1px #f6d399;
+	border-radius: 5px;
+	display: inline-flex;
+	align-items: center;
+
+	font-family: var(--texto);
+	text-align: center;
+}
+
+#eye,#eyes{
+	vertical-align: middle;
+}
+
+.bouton:hover, #registration_form_email:hover,.champregister:hover, .sprite:hover{
+	transform: scale(var(--scale));
+}
+
+@media (max-width:700px) and (min-width: 344px) {
+	.formulogin{
+		width: 75%;
+		height: 63%;
+	}
+	#registration_form_password, #registration_form_confirmerpassword {
+		width: 88%;
+	}
+}
+
+@media screen and (max-width:344px){
+	.formulogin{
+		width: 75%;
+		height: 65%;
+	}
+	#registration_form_password, #registration_form_confirmerpassword {
+		width: 80%;
+	}
+	.textseconn{
+	font-size:25px;
+	vertical-align: middle;
+	line-height: 1.7;
+	}
+}
+

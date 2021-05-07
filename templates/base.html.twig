@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Bienvenue!{% endblock %}</title>
+
+        {% block stylesheets %}
+                  <link rel="stylesheet" href="{{asset('css/header.css')}}" type="text/css" >
+                  <link rel="stylesheet" href="{{asset('css/auteurmada.css')}}" type="text/css" >
+          <link rel="stylesheet" href="{{asset('css/accueilmada.css')}}" type="text/css" >
+          <link rel="stylesheet" href="{{asset('css/articlemada.css')}}" type="text/css" >
+          <link rel="stylesheet" href="{{asset('css/all.min.css')}}" type="text/css">   
+        {% endblock %}
+
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+    </head>
+
+    <body class="generale">
+              {% if app.user != null %}
+      <header class="barre">
+
+          <div class="logo">Maasil-inc</div>
+
+          <div class="navi">
+            <div class="boutonb"><a class="boutonaccueil" href="/accueil">Accueil|</a></div>
+            <div class="boutonb"><a class="boutonart" href="/article/new">Creer un article</a></div>  
+            <div class="boutonb"><a class="boutonart" href="/auteur/new">Creer un auteur</a></div>
+          </div>
+
+          <div class="deconnect">
+            <a class="boutonart" href="/logout">deconnexion</a>
+          </div>       
+
+        </header>
+
+        {% else %}
+
+ <header class="barre">
+
+          <div class="logo">Maasil-inc</div>
+
+          <div class="navi">
+            <div class="boutonb"><a class="boutonaccueil" href="/accueil">Accueil|</a></div>
+            <div class="boutonb"><a class="boutonart" href="/login">Creer un article</a></div>  
+            <div class="boutonb"><a class="boutonart" href="/login">Creer un auteur</a></div>
+          </div>
+          
+          <div class="deconnect">
+            <div class="boutonb"><a class="boutonart" href="/register">s'inscrire</a></div>
+            <div class="boutonb"><a class="boutonart" href="/login">login</a></div> 
+          </div>       
+
+        </header>
+
+      {% endif %}
+        {% block body %}{% endblock %}
+    </body>
+
+</html>

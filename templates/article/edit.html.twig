@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Article{% endblock %}
+
+{% block body %}
+<div class="flexible">
+    {{ include('article/modifier.html.twig', {'button_label': 'Modifier'}) }}
+</div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{{ form_start(form) }}
+<div class="divtitre">
+<h2 class="titre">Creer un nouveau auteur</h2>
+</div>
+	<div class="champarticle">
+		<h3 class="titre2"> Ajouter un auteur :</h3>
+		<div class="champart">{{ form_widget(form.Auteur) }}</div>
+    </div>
+
+    <div class="champarticle">
+    	<button class="boutonarti">{{ button_label|default('Save') }}</button>
+    </div>
+    
+{{ form_end(form) }}

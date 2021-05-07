@@ -1,0 +1,35 @@
+{{ form_start(form) }}
+<div class="divtitre">
+<h2 class="titre">Creer une nouvelle article</h2>
+</div>
+	<div class="champarticle">
+		<h3 class="titre2"> Ajouter un titre :</h3>
+		<div class="champart">{{ form_widget(form.Titre) }}</div>
+    </div>
+
+    <div class="champarticle"style="margin-bottom: 45px;">
+    	<h3 class="titre2"> Ajouter un texte :</h3>
+    	<div class="champart">{{ form_widget(form.Texte) }}</div>	
+    </div>
+
+    <div class="champarticle">
+    	<h3 class="titre2"> Ajouter un image :</h3>
+    	<div class="champart">{{ form_widget(form.image)}}
+<div class="divcont">
+<div class="divupload">
+    <label class="articleimage" for="article_image">choisissez une image</label>
+
+    </div></div>
+            </div>
+    </div>
+
+    <div class="champarticle">
+    	<h3 class="titre2"> Choisir un auteur :</h3>
+    	<div class="champart">{{ form_widget(form.auteur) }}</div>
+    </div>
+
+	<div class="champarticle">
+    	<button class="boutonarti">{{ button_label|default('Save') }}</button>
+    </div>
+    
+{{ form_end(form) }}

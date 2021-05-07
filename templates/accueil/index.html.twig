@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+      {% block body %}
+
+
+          <div class="flexconte">
+
+          {% for article in articles %}
+                <div class="accueilo">
+                  <div ><img class="img" src="uploads/{{article.image}}"></div>
+                  <div class="legend">
+                    <h1 class="grandtitre">{{article.Titre}}</h1>
+                    <label class="texte">{{article.Texte}}</label>
+                    <div class="divauteur">
+                      <label class="auteur" >{{article.Auteur}}</label>
+                    </div>
+                    
+                    <div class="divdate" >
+                        <p class="moddate" >Créé le :</p>
+                      <label class="date" >{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</label>
+                    </div>
+{% if article.DateModif != null %}
+<div class="divdate" >
+  <p class="moddate" >Modifié le :</p>
+                      <label class="date" >{{ article.DateModif ? article.DateModif|date('Y-m-d H:i:s') : '' }}</label>
+                    </div>
+                    {% endif %}
+
+                    <div class="boutondeledit"><a class="boutonmod" href="{{ path('article_edit', {'id': article.id}) }}">modifier</a> 
+                    <form class="formdel" method="post" action="{{ path('article_delete', {'id': article.id}) }}" onsubmit="return confirm('Êtes-vous sûre de supprimer cette article?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ article.id) }}">
+    <button class="boutondel">Delete</button>
+</form></div>
+                    
+                  </div>
+                </div>
+          {% endfor %}
+
+          </div>
+        
+      {% endblock %}
+

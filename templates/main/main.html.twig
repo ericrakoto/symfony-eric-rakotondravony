@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+      {% block body %}
+
+
+          <div class="flexconte">
+
+          {% for article in articles %}
+                <div class="accueilo">
+                  <div ><img class="img" src="uploads/{{article.image}}"></div>
+                  <div class="legend">
+                    <h1 class="grandtitre">{{article.Titre}}</h1>
+                    <label class="texte" >{{article.Texte}}</label>
+                    <div class="divauteur">
+                      <label class="auteur" >{{article.Auteur}}</label>
+                    </div>
+                    
+                    <div>
+                      <label class="date" >{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</label>
+                    </div>
+                    
+                  </div> 
+                </div>
+          {% endfor %}
+
+          </div>
+        
+      {% endblock %}
+
